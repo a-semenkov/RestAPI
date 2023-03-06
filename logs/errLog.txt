@@ -1,0 +1,1 @@
+18:20:31   06-03-2023	a6360b35-5519-40e3-8761-be5d0d923913	Error: Not allowed y CORS policy
