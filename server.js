@@ -2,6 +2,7 @@ const express = require('express');
 const { logEvents, logger } = require('./middleware/logEvents');
 const { errorHandler } = require('./middleware/errorHandler');
 const cors = require('cors');
+const corsOptions = require('./config/corsOpts');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
@@ -9,17 +10,6 @@ const app = express();
 
 app.use(logger);
 
-const whitelist = [];
-const corsOptions = {
-  origin: (origin, cb) => {
-    // TODO: remove in prod
-    if (whitelist.includes(origin) || !origin) {
-      cb(null, true);
-    } else {
-      cb(new Error('Not allowed by CORS policy'));
-    }
-  },
-};
 app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: false }));
