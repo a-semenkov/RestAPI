@@ -1,1 +1,6 @@
 18:20:31   06-03-2023	a6360b35-5519-40e3-8761-be5d0d923913	Error: Not allowed y CORS policy
+19:06:35   06-03-2023	d05bef99-5757-4570-9143-b95ed77ab1de	TypeError: Cannot read properties of undefined (reading 'name')
+19:07:29   06-03-2023	cb254d12-ce0a-4293-aac8-5875522587ad	TypeError: Cannot read properties of undefined (reading 'name')
+19:08:41   06-03-2023	be3c885c-ac20-4c3b-8de6-418bf405330b	TypeError: Cannot read properties of undefined (reading 'name')
+19:08:50   06-03-2023	dfeb323d-f671-46bf-a11c-42eafd9d4db8	TypeError: Cannot read properties of undefined (reading 'name')
+19:23:21   06-03-2023	d0689dbe-c24b-45cc-a505-71850a32bbe4	SyntaxError: Unexpected token ' in JSON at position 1

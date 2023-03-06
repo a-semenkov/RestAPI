@@ -22,15 +22,20 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, 'serving', 'test.png'));
-});
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-app.all('/*', (req, res) => {
+// serve static files
+app.use('/', express.static(path.join(__dirname, '/public')));
+
+app.use('/', require('./routes/root'));
+app.use('/users', require('./routes/api/users'));
+
+app.use('/*', (req, res) => {
   if (req.accepts('html')) {
-    res.sendFile(path.join(__dirname, 'public', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
   } else if (req.accepts('json'))
-    res.json({ code: 404, message: '404 Not found' });
+    res.status(404).json({ code: 404, message: '404 Not found' });
 });
 
 app.use(errorHandler);
