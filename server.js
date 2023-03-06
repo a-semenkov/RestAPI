@@ -18,8 +18,11 @@ app.use(express.json());
 // serve static files
 app.use('/', express.static(path.join(__dirname, '/public')));
 
+// Routes
 app.use('/', require('./routes/root'));
 app.use('/users', require('./routes/api/users'));
+app.use('/register', require('./routes/api/register'));
+app.use('/auth', require('./routes/api/auth'));
 
 app.use('/*', (req, res) => {
   if (req.accepts('html')) {

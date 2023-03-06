@@ -10,17 +10,6 @@ const getUserById = (req, res) => {
     .json(data.users.filter((user) => user.id === Number(req.params.id)));
 };
 
-const createNewUser = (req, res) => {
-  const newUser = {
-    id: data.users[data.users.length - 1].id + 1,
-    name: req.body.name,
-    mail: req.body.mail,
-  };
-  data.users = [...data.users, newUser];
-
-  res.status(201).json(data.users);
-};
-
 const editUser = (req, res) => {
   const user = data.users.find(({ id }) => id === Number(req.body.id));
   if (!user) return res.status(404).send('user not found');
@@ -46,4 +35,4 @@ const deleteUser = (req, res) => {
   res.status(200).json(data.users);
 };
 
-module.exports = { getUsers, getUserById, createNewUser, editUser, deleteUser };
+module.exports = { getUsers, getUserById, editUser, deleteUser };
