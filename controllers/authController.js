@@ -29,6 +29,7 @@ const login = async (req, res) => {
 
   if (isCorrectPassword) {
     const roles = Object.values(foundUser.roles);
+
     const accessToken = jwt.sign(
       {
         UserInfo: {
@@ -69,7 +70,7 @@ const login = async (req, res) => {
       status: 200,
       ok: true,
       token: accessToken,
-      message: `User ${username} logged in successfully`,
+      payload: { username, id: foundUser.id },
     });
   } else {
     res.status(401).json({

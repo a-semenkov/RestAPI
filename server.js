@@ -1,5 +1,5 @@
 const express = require('express');
-const { logEvents, logger } = require('./middleware/logEvents');
+const { logger } = require('./middleware/logEvents');
 const { errorHandler } = require('./middleware/errorHandler');
 const verifyJWT = require('./middleware/verifyJWT');
 const cookieParser = require('cookie-parser');
@@ -43,7 +43,7 @@ app.use('/*', (req, res) => {
   if (req.accepts('html')) {
     res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
   } else if (req.accepts('json'))
-    res.status(404).json({ code: 404, message: '404 Not found' });
+    res.status(404).json({ status: 404, ok: false, message: '404 Not found' });
 });
 
 app.use(errorHandler);

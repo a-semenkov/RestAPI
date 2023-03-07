@@ -14,7 +14,7 @@ const createNewUser = async (req, res) => {
     return res.status(400).json({
       status: 400,
       ok: false,
-      message: 'Username and password required',
+      message: 'Username and/or password required',
     });
 
   const isUserExists = data.users.find((entry) => entry.user === username);
@@ -28,7 +28,7 @@ const createNewUser = async (req, res) => {
 
     const newUser = {
       id: uuid(),
-      user: username,
+      username,
       roles: {
         user: 3,
       },
@@ -43,7 +43,11 @@ const createNewUser = async (req, res) => {
 
     res
       .status(201)
-      .json({ status: 201, ok: true, message: 'User successfully created' });
+      .json({
+        status: 201,
+        ok: true,
+        payload: { username: newUser.username, id: newUser.id },
+      });
   } catch (e) {
     res.status(500).json({ status: 500, ok: false, message: e.message });
   }

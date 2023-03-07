@@ -226,3 +226,4 @@
 13:14:26   07-03-2023	7dedddac-9b79-47e6-9009-91dfdc273f49	PUT	undefined	/users
 13:14:28   07-03-2023	33bfdd0a-e217-45da-a40c-ecfcdb83ca3e	POST	undefined	/auth
 13:14:33   07-03-2023	7db929c4-d36f-44db-ba9c-b17935f12579	PUT	undefined	/users
+15:13:10   07-03-2023	e8a4cc2f-c529-431d-b143-6f2dfaf8fcde	GET	undefined	/

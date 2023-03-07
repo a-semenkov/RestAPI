@@ -2,7 +2,6 @@ const allowedOrigins = require('./allowedOrigins');
 
 const corsOptions = {
   origin: (origin, cb) => {
-    // TODO: remove in prod
     if (allowedOrigins.includes(origin) || !origin) {
       cb(null, true);
     } else {
