@@ -29,6 +29,9 @@ const createNewUser = async (req, res) => {
     const newUser = {
       id: uuid(),
       user: username,
+      roles: {
+        user: 3,
+      },
       password: hashedPwd,
     };
 

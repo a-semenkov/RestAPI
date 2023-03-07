@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const verifyJWT = (req, res, next) => {
-  const authHeader = req.headers['authorization'];
+  const authHeader = req.headers.authorization || req.headers.Authorization;
 
-  if (!authHeader)
+  if (!authHeader?.startsWith('Bearer '))
     return res
       .status(401)
       .json({ status: 401, ok: false, message: 'Unauthorized' });
@@ -18,7 +18,8 @@ const verifyJWT = (req, res, next) => {
         ok: false,
         message: 'Forbidden: incorrect access token',
       });
-    req.user = decoded.username;
+    req.user = decoded.UserInfo.username;
+    req.roles = decoded.UserInfo.roles;
     next();
   });
 };
