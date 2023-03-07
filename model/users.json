@@ -1,1 +1,1 @@
-[{"id":1,"name":"user1","mail":"user1@mail.ru"},{"id":2,"name":"user2","mail":"user2@mail.ru"},{"id":"0e9a16ac-d7e4-437c-b08d-e2d0bd891548","user":"superUser","password":"$2b$10$bEzoWtQlC3gVz4DzNIZpouZvD0nTwPT4qi7d7B6waULUUV7I/5W8G"}]
+[{"id":"0e9a16ac-d7e4-437c-b08d-e2d0bd891548","username":"superUser","password":"$2b$10$bEzoWtQlC3gVz4DzNIZpouZvD0nTwPT4qi7d7B6waULUUV7I/5W8G","refreshToken":""}]

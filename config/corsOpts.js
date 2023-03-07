@@ -1,13 +1,15 @@
-const whitelist = [];
+const allowedOrigins = require('./allowedOrigins');
+
 const corsOptions = {
   origin: (origin, cb) => {
     // TODO: remove in prod
-    if (whitelist.includes(origin) || !origin) {
+    if (allowedOrigins.includes(origin) || !origin) {
       cb(null, true);
     } else {
       cb(new Error('Not allowed by CORS policy'));
     }
   },
+  optionsSuccessStatus: 200,
 };
 
 module.exports = corsOptions;

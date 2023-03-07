@@ -2,7 +2,8 @@ const data = {
   users: require('../model/users.json'),
 };
 
-const getUsers = (req, res) => res.status(200).json(data.users);
+const getUsers = (req, res) =>
+  res.status(200).json({ status: 200, ok: true, payload: data.users });
 
 const getUserById = (req, res) => {
   res

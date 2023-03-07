@@ -8,16 +8,16 @@ const data = {
 };
 
 const createNewUser = async (req, res) => {
-  const { user, password } = req.body;
+  const { user: username, password } = req.body;
 
-  if (!user || !password)
+  if (!username || !password)
     return res.status(400).json({
       status: 400,
       ok: false,
       message: 'Username and password required',
     });
 
-  const isUserExists = data.users.find((entry) => entry.user === user);
+  const isUserExists = data.users.find((entry) => entry.user === username);
   if (isUserExists)
     return res
       .status(409)
@@ -28,7 +28,7 @@ const createNewUser = async (req, res) => {
 
     const newUser = {
       id: uuid(),
-      user,
+      user: username,
       password: hashedPwd,
     };
 
